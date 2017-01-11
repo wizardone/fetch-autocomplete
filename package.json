@@ -1,0 +1,41 @@
+{
+  "name": "react-autocomplete",
+  "version": "1.0.0",
+  "description": "An autocomplete form written in React and using the Fetch API",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "build": "webpack -p --config ./webpack.production.config.js --progress --profile --colors",
+    "start-dev": "webpack-dev-server --inline --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wizardone/react-autocomplete.git"
+  },
+  "keywords": [
+    "react",
+    "autocomplete",
+    "form",
+    "fetch"
+  ],
+  "author": "Stefan Slaveykov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wizardone/react-autocomplete/issues"
+  },
+  "homepage": "https://github.com/wizardone/react-autocomplete#readme",
+  "dependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2016": "^6.16.0",
+    "babel-preset-es2017": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "webpack": "^1.14.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.13.1",
+    "mocha": "^3.2.0"
+  }
+}
