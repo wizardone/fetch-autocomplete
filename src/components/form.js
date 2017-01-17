@@ -6,7 +6,11 @@ export default class AutoComplete extends React.Component {
 
   constructor () {
     super()
-    this.state = {keyPressed: false, showResults: false}
+    this.state = {
+      keyPressed: false,
+      showResults: false,
+      keyPressedNumber: 0
+    }
   }
 
   onClick = (event) => {
@@ -14,15 +18,32 @@ export default class AutoComplete extends React.Component {
   }
 
   onKeyPress = (event) => {
-    console.log(event)
+    let incrementedKeyPress = this.state.keyPressedNumber += 1
+
+    this.incrementKeyPresses(incrementedKeyPress)
+    this.showResults(incrementedKeyPress)
+  }
+
+  incrementKeyPresses = (incrementedKeyPress) => {
+    this.setState({keyPressedNumber: incrementedKeyPress})
+  }
+
+  showResults = (incrementedKeyPress) => {
+    let { defaultKeyPresses } = config
+
+    if(incrementedKeyPress >= defaultKeyPresses) {
+      this.setState({showResults: true})
+    }
   }
 
   render () {
     let { inputClass, resultsClass } = config
+    let showResults = this.state.showResults
+
     return (
       <div>
         <input type="text" className={inputClass} onClick={(e) => this.onClick(e)} onKeyPress={(e) => this.onKeyPress(e)}/>
-        <div className={resultsClass}></div>
+        {showResults ? (<div className={resultsClass}>Results here</div>) : null}
       </div>
     )
   }

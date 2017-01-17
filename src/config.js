@@ -1,6 +1,7 @@
 const config = {
   inputClass: 'autocomplete-field',
-  resultsClass: 'autocomplete-results'
+  resultsClass: 'autocomplete-results',
+  defaultKeyPresses: 3
 }
 
 export {
