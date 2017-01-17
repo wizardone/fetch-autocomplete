@@ -4,8 +4,8 @@ import { config } from '../config.js'
 
 export default class AutoComplete extends React.Component {
 
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       keyPressed: false,
       showResults: false,
@@ -41,12 +41,10 @@ export default class AutoComplete extends React.Component {
     let showResults = this.state.showResults
 
     return (
-      <div>
+      <div className="autocomplete">
         <input type="text" className={inputClass} onClick={(e) => this.onClick(e)} onKeyPress={(e) => this.onKeyPress(e)}/>
         {showResults ? (<div className={resultsClass}>Results here</div>) : null}
       </div>
     )
   }
 }
-
-ReactDom.render(<AutoComplete />, document.getElementById('autocomplete-form'))
