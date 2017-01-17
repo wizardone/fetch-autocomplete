@@ -6,16 +6,24 @@ export default class AutoComplete extends React.Component {
 
   constructor () {
     super()
+    this.state = {keyPressed: false, showResults: false}
   }
 
   onClick = (event) => {
     console.log(event)
   }
 
+  onKeyPress = (event) => {
+    console.log(event)
+  }
+
   render () {
-    let { inputClass } = config
+    let { inputClass, resultsClass } = config
     return (
-      <input type="text" className={inputClass} onClick={(e) => this.onClick(e)}/>
+      <div>
+        <input type="text" className={inputClass} onClick={(e) => this.onClick(e)} onKeyPress={(e) => this.onKeyPress(e)}/>
+        <div className={resultsClass}></div>
+      </div>
     )
   }
 }

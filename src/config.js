@@ -1,5 +1,6 @@
 const config = {
-  inputClass: 'autocomplete-field'
+  inputClass: 'autocomplete-field',
+  resultsClass: 'autocomplete-results'
 }
 
 export {
