@@ -1,1 +1,1 @@
-import AutoCompleteForm from './components/form.js';
+import AutoComplete from './components/form.js';

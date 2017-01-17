@@ -1,13 +1,23 @@
-import React from 'react';
-import ReactDom from 'react-dom';
+import React from 'react'
+import ReactDom from 'react-dom'
+import { config } from '../config.js'
 
-export default class AutoCompleteForm extends React.Component {
+export default class AutoComplete extends React.Component {
 
-  render() {
+  constructor () {
+    super()
+  }
+
+  onClick = (event) => {
+    console.log(event)
+  }
+
+  render () {
+    let { inputClass } = config
     return (
-      <div>Form</div>
+      <input type="text" className={inputClass} onClick={(e) => this.onClick(e)}/>
     )
   }
 }
 
-ReactDom.render(<AutoCompleteForm />, document.getElementById("autocomplete-form"))
+ReactDom.render(<AutoComplete />, document.getElementById('autocomplete-form'))

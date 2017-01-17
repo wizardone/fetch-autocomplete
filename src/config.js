@@ -1,3 +1,7 @@
-const config = new Set();
+const config = {
+  inputClass: 'autocomplete-field'
+}
 
-export config;
+export {
+  config
+}
