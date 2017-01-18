@@ -1,3 +1,4 @@
+import 'jsdom-global/register'
 import AutoComplete from '../src/components/form'
 
 import React from 'react'
@@ -7,15 +8,17 @@ import { mount, shallow, render } from 'enzyme'
 
 describe('<AutoComplete />', () => {
 
-  it('renders with the proper class name', () => {
-    expect(shallow(<AutoComplete />).contains(<div className="autocomplete" />)).to.equal(true);
+  it('has an element with the proper class name', () => {
+    const wrapper = shallow(<AutoComplete />)
+
+    expect(wrapper.contains(<div className="test" />)).to.equal(true);
   });
 
-  it('renders with the proper class name', () => {
+  it('exists an element with this class', () => {
     expect(shallow(<AutoComplete />).is('.autocomplete')).to.equal(true)
   });
 
-  it('renders with the proper class name', () => {
+  it('does something??', () => {
     expect(mount(<AutoComplete />).find('.autocomplete').length).to.equal(1)
   });
 
