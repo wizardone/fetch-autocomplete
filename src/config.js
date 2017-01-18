@@ -2,7 +2,9 @@ const config = {
   inputClass: 'autocomplete-field',
   resultsClass: 'autocomplete-results',
   mainHolderClass: 'autocomplete',
-  defaultKeyPresses: 3
+  defaultSearchText: 'Search...',
+  defaultKeyPresses: 3,
+  fetchUrl: ''
 }
 
 export {
