@@ -42,7 +42,6 @@ export default class AutoComplete extends React.Component {
 
     return (
       <div className={mainHolderClass}>
-        <div className="test"></div>
         <input type="text" className={inputClass} onClick={(e) => this.onClick(e)} onKeyPress={(e) => this.onKeyPress(e)}/>
         {showResults ? (<div className={resultsClass}>Results here</div>) : null}
       </div>
