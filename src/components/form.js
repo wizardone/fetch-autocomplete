@@ -13,18 +13,17 @@ export default class AutoComplete extends React.Component {
     }
   }
 
-  onClick = (event) => {
-  }
-
-  onKeyDown = (event) => {
+  onKeyUp = (event) => {
+    console.log(event.keyCode)
     if(event.keyCode == 8){
       // Backspace
       this.decrementKeyPresses()
     } else {
       let incrementedKeyPress = this.state.keyPressedCount += 1
+      let searchValue = event.target.value
 
       this.incrementKeyPresses(incrementedKeyPress)
-      this.showResults(incrementedKeyPress)
+      this.showResults(incrementedKeyPress, searchValue)
     }
   }
 
@@ -39,12 +38,25 @@ export default class AutoComplete extends React.Component {
     }
   }
 
-  showResults = (incrementedKeyPress) => {
+  showResults = (incrementedKeyPress, searchValue) => {
     let { defaultKeyPresses } = config
 
     if(incrementedKeyPress >= defaultKeyPresses) {
+      this.sendSearchRequest(searchValue)
       this.setState({showResults: true})
     }
+  }
+
+  sendSearchRequest = (value) => {
+    let { fetchUrl, fetchMethod } = config
+    fetch(fetchUrl, {
+      method: fetchMethod,
+      mode: 'cors'
+    }).then((response) => {
+      console.log(response)
+    }).catch((err) => {
+      console.log(err)
+    })
   }
 
   render () {
@@ -53,7 +65,7 @@ export default class AutoComplete extends React.Component {
 
     return (
       <div className={mainHolderClass}>
-        <input type="text" placeholder={defaultSearchText} className={inputClass} onClick={(e) => this.onClick(e)} onKeyDown={(e) => this.onKeyDown(e)}/>
+        <input type="text" placeholder={defaultSearchText} className={inputClass} onKeyUp={(e) => this.onKeyUp(e)} />
         {showResults ? (<div className={resultsClass}>Results here</div>) : null}
       </div>
     )
