@@ -14,7 +14,6 @@ export default class AutoComplete extends React.Component {
   }
 
   onKeyUp = (event) => {
-    console.log(event.keyCode)
     if(event.keyCode == 8){
       // Backspace
       this.decrementKeyPresses()
@@ -49,11 +48,17 @@ export default class AutoComplete extends React.Component {
 
   sendSearchRequest = (value) => {
     let { fetchUrl, fetchMethod } = config
-    fetch(fetchUrl, {
+    let request = new Request(fetchUrl, {
       method: fetchMethod,
-      mode: 'cors'
-    }).then((response) => {
-      console.log(response)
+      mode: 'cors',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        search: value
+      })
+    })
+
+    fetch(request).then((response) => {
+      console.log(response.body)
     }).catch((err) => {
       console.log(err)
     })

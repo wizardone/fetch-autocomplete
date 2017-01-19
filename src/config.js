@@ -4,7 +4,7 @@ const config = {
   mainHolderClass: 'autocomplete',
   defaultSearchText: 'Search...',
   defaultKeyPresses: 3,
-  fetchUrl: 'http://localhost:3000',
+  fetchUrl: 'http://localhost:8888/data',
   fetchMethod: 'POST'
 }
 
