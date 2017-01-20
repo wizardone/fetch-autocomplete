@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { config } from '../config.js'
+import FetchException from '../fetch_exception'
 
 export default class AutoComplete extends React.Component {
 
@@ -9,7 +10,8 @@ export default class AutoComplete extends React.Component {
     this.state = {
       keyPressed: false,
       showResults: false,
-      keyPressedCount: 0
+      keyPressedCount: 0,
+      searchData: null
     }
   }
 
@@ -58,7 +60,14 @@ export default class AutoComplete extends React.Component {
     })
 
     fetch(request).then((response) => {
-      console.log(response.body)
+      return response.json()
+    }).then((json) => {
+      console.log(json['data'])
+      let data = json
+      if(data['data'] == undefined){
+        throw new FetchException("JSON response must have a 'data' key in it. Please refer to the README")
+      }
+      this.setState({searchData: data})
     }).catch((err) => {
       console.log(err)
     })
