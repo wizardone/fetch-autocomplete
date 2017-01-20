@@ -44,7 +44,6 @@ export default class AutoComplete extends React.Component {
 
     if(incrementedKeyPress >= defaultKeyPresses) {
       this.sendSearchRequest(searchValue)
-      this.setState({showResults: true})
     }
   }
 
@@ -62,11 +61,11 @@ export default class AutoComplete extends React.Component {
     fetch(request).then((response) => {
       return response.json()
     }).then((json) => {
-      let data = json
-      if(data['data'] == undefined){
+      let results = json
+      if(results['data'] == undefined){
         throw new FetchException("JSON response must have a 'data' key in it. Please refer to the README")
       }
-      this.setState({searchData: data})
+      this.setState({searchData: results['data'], showResults: true})
     }).catch((err) => {
       console.log(err)
     })
@@ -74,12 +73,20 @@ export default class AutoComplete extends React.Component {
 
   render () {
     let { inputClass, resultsClass, mainHolderClass, defaultSearchText } = config
-    let showResults = this.state.showResults
+    let { showResults, searchData } = this.state
 
     return (
       <div className={mainHolderClass}>
         <input type="text" placeholder={defaultSearchText} className={inputClass} onKeyUp={(e) => this.onKeyUp(e)} />
-        {showResults ? (<div className={resultsClass}>Results here</div>) : null}
+        {showResults ?
+          (<div className={resultsClass}>
+            <ul>
+            {searchData.map((data, index) => {
+              return (<li key={index}>{data.value}</li>)
+            })}
+            </ul>
+           </div>) :
+          null}
       </div>
     )
   }
