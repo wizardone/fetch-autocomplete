@@ -62,7 +62,6 @@ export default class AutoComplete extends React.Component {
     fetch(request).then((response) => {
       return response.json()
     }).then((json) => {
-      console.log(json['data'])
       let data = json
       if(data['data'] == undefined){
         throw new FetchException("JSON response must have a 'data' key in it. Please refer to the README")
