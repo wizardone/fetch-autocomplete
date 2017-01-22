@@ -26,4 +26,13 @@ describe('<AutoComplete />', () => {
     expect(mount(<AutoComplete />).find('.autocomplete').length).to.equal(1)
   });
 
+  it('returns the right initial state', () => {
+    const wrapper = shallow(<AutoComplete />)
+
+    expect(wrapper.state().keyPressed).to.equal(false)
+    expect(wrapper.state().showResults).to.equal(false)
+    expect(wrapper.state().keyPressedCount).to.equal(0)
+    expect(wrapper.state().searchData).to.equal(null)
+  })
+
 });
