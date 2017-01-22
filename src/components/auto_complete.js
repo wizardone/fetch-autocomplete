@@ -34,8 +34,12 @@ export default class AutoComplete extends React.Component {
 
   decrementKeyPresses = () => {
     let oldKeyPressedCount = this.state.keyPressedCount
+    let { defaultKeyPresses } = config
     if(oldKeyPressedCount > 0){
       this.setState({keyPressedCount: oldKeyPressedCount -= 1})
+    }
+    if(this.state.keyPressedCount <= defaultKeyPresses){
+      this.setState({showResults: false})
     }
   }
 
@@ -44,6 +48,8 @@ export default class AutoComplete extends React.Component {
 
     if(incrementedKeyPress >= defaultKeyPresses) {
       this.sendSearchRequest(searchValue)
+    } else {
+      this.setState({showResults: false})
     }
   }
 
@@ -82,7 +88,7 @@ export default class AutoComplete extends React.Component {
           (<div className={resultsClass}>
             <ul>
             {searchData.map((data, index) => {
-              return (<li key={index}>{data.value}</li>)
+              return (<li key={index}><a href={data.url}>{data.value}</a></li>)
             })}
             </ul>
            </div>) :
