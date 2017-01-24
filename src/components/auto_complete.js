@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDom from 'react-dom'
+import config from '../config'
 import FetchException from '../fetch_exception'
 
 export default class AutoComplete extends React.Component {
 
   constructor (props) {
-    super(props)
+    super(Object.assign({}, config, props))
     this.state = {
       keyPressed: false,
       showResults: false,
