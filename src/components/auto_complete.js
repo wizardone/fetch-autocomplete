@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import { config } from '../config.js'
 import FetchException from '../fetch_exception'
 
 export default class AutoComplete extends React.Component {
@@ -34,7 +33,7 @@ export default class AutoComplete extends React.Component {
 
   decrementKeyPresses = () => {
     let oldKeyPressedCount = this.state.keyPressedCount
-    let { defaultKeyPresses } = config
+    let { defaultKeyPresses } = this.props
     if(oldKeyPressedCount > 0){
       this.setState({keyPressedCount: oldKeyPressedCount -= 1})
     }
@@ -44,7 +43,7 @@ export default class AutoComplete extends React.Component {
   }
 
   showResults = (incrementedKeyPress, searchValue) => {
-    let { defaultKeyPresses } = config
+    let { defaultKeyPresses } = this.props
 
     if(incrementedKeyPress >= defaultKeyPresses) {
       this.sendSearchRequest(searchValue)
@@ -54,7 +53,7 @@ export default class AutoComplete extends React.Component {
   }
 
   sendSearchRequest = (value) => {
-    let { fetchUrl, fetchMethod } = config
+    let { fetchUrl, fetchMethod } = this.props
     let request = new Request(fetchUrl, {
       method: fetchMethod,
       mode: 'cors',
@@ -78,7 +77,7 @@ export default class AutoComplete extends React.Component {
   }
 
   render () {
-    let { inputClass, resultsClass, mainHolderClass, defaultSearchText } = config
+    let { inputClass, resultsClass, mainHolderClass, defaultSearchText } = this.props
     let { showResults, searchData } = this.state
 
     return (
