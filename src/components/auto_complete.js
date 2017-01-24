@@ -5,8 +5,8 @@ import FetchException from '../fetch_exception'
 
 export default class AutoComplete extends React.Component {
 
-  constructor (props) {
-    super(Object.assign({}, config, props))
+  constructor (props = Object.assign({}, config, props)) {
+    super(props)
     this.state = {
       keyPressed: false,
       showResults: false,
