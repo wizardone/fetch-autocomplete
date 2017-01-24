@@ -7,12 +7,10 @@ import { mount, shallow, render } from 'enzyme'
 
 
 describe('<AutoComplete />', () => {
-
   it('returns the proper component structure', () => {
-    const wrapper = shallow(<AutoComplete inputClass='autocomplete-field' resultsClass='autocomplete-results'
+    let wrapper = shallow(<AutoComplete inputClass='autocomplete-field' resultsClass='autocomplete-results'
                               mainHolderClass='autocomplete' defaultSearchText='Search...'
                               defaultKeyPresses={3} fetchUrl='http://localhost:8888/data' fetchMethod='POST'/>)
-
     expect(wrapper.matchesElement(
       <div className="autocomplete">
         <input type="text" className="autocomplete-field"/>
