@@ -1,6 +1,6 @@
 const path = require('path')
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/demo.js',
   devtool: 'eval',
   output: {
     path: path.join(__dirname, 'lib'),
