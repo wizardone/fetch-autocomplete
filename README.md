@@ -10,11 +10,23 @@ To configure the AutoComplete Component you can pass the following
 properties:
 
 ```javascript
+import AutoComplete from 'react-autocomplete'
+
 <AutoComplete inputClass='autocomplete-field' resultsClass='autocomplete-results'
               mainHolderClass='autocomplete' defaultSearchText='Search...'
               defaultKeyPresses={3} fetchUrl='http://localhost:8888/data' fetchMethod='POST'
 />
 ```
+The options that you definitely want to configure are:
+`fetchUrl`
+
+The request format is:
+```json
+{
+  "search": "value"
+}
+```
+
 The response format needs to look like this:
 ```json
 {
@@ -24,3 +36,5 @@ The response format needs to look like this:
   ]
 }
 ```
+Currently only the `value` and `url` are used. Future versions will use
+more options ;)
