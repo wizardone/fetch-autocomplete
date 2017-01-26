@@ -1,5 +1,5 @@
 export default class FetchException {
-  constructor(message) {
+  constructor (message) {
     this.message = message
     this.name = 'FetchException'
   }
