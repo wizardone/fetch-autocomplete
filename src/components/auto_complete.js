@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import config from '../config'
+import { config } from '../config'
 import FetchException from '../fetch_exception'
 
 export default class AutoComplete extends React.Component {
 
-  constructor (props = Object.assign({}, config, props)) {
+  constructor (props) {
     super(props)
     this.state = {
       keyPressed: false,
@@ -97,3 +97,5 @@ export default class AutoComplete extends React.Component {
     )
   }
 }
+
+AutoComplete.defaultProps = config
