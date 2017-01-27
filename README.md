@@ -1,5 +1,5 @@
 # react-autocomplete
-[![Build Status](https://travis-ci.org/wizardone/react-autocomplete.svg?branch=master)](https://travis-ci.org/wizardone/react-autocomplete)
+[![Build Status](https://travis-ci.org/wizardone/fetch-autocomplete.svg?branch=master)](https://travis-ci.org/wizardone/react-autocomplete)
 
 Autocomplete field written in React. A couple of points:
 - It uses Json to send data and it expects a json data to be returned
