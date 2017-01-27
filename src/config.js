@@ -5,7 +5,8 @@ const config = {
   defaultSearchText: 'Search...',
   defaultKeyPresses: 3,
   fetchUrl: 'http://localhost:8888/data',
-  fetchMethod: 'POST'
+  fetchMethod: 'POST',
+  fetchMode: 'cors'
 }
 
 export {

@@ -15,10 +15,13 @@ import AutoComplete from 'react-autocomplete'
 <AutoComplete inputClass='autocomplete-field' resultsClass='autocomplete-results'
               mainHolderClass='autocomplete' defaultSearchText='Search...'
               defaultKeyPresses={3} fetchUrl='http://localhost:8888/data' fetchMethod='POST'
+              fetchMode='cors'
 />
 ```
 The options that you definitely want to configure are:
-`fetchUrl`
+`fetchUrl` => url endpoint
+`fetchMode` => 'cors' or 'no-cors', depending on how you use the
+autocomplete field
 
 The request format is:
 ```json

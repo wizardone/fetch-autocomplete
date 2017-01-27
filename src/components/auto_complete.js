@@ -54,10 +54,10 @@ export default class AutoComplete extends React.Component {
   }
 
   sendSearchRequest = (value) => {
-    let { fetchUrl, fetchMethod } = this.props
+    let { fetchUrl, fetchMethod, fetchMode } = this.props
     let request = new Request(fetchUrl, {
       method: fetchMethod,
-      mode: 'cors',
+      mode: fetchMode,
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         search: value
@@ -106,5 +106,6 @@ AutoComplete.propTypes = {
   defaultSearchText: React.PropTypes.string,
   defaultKeyPresses: React.PropTypes.number,
   fetchUrl: React.PropTypes.string,
-  fetchMethod: React.PropTypes.string
+  fetchMethod: React.PropTypes.string,
+  fetchMode: React.PropTypes.string
 }

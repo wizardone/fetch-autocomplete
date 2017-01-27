@@ -42,6 +42,7 @@ describe('<AutoComplete />', () => {
     expect(props.defaultKeyPresses).to.equal(3)
     expect(props.fetchUrl).to.equal('http://localhost:8888/data')
     expect(props.fetchMethod).to.equal('POST')
+    expect(props.fetchMode).to.equal('cors')
   })
 
   it('returns the right initial state', () => {
