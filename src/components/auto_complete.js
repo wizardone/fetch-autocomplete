@@ -99,3 +99,12 @@ export default class AutoComplete extends React.Component {
 }
 
 AutoComplete.defaultProps = config
+AutoComplete.propTypes = {
+  inputClass: React.PropTypes.string,
+  resultsClass: React.PropTypes.string,
+  mainHolderClass: React.PropTypes.string,
+  defaultSearchText: React.PropTypes.string,
+  defaultKeyPresses: React.PropTypes.number,
+  fetchUrl: React.PropTypes.string,
+  fetchMethod: React.PropTypes.string
+}
