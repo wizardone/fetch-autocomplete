@@ -3,7 +3,7 @@ import ReactDom from 'react-dom'
 import { config } from '../config'
 import FetchException from '../fetch_exception'
 
-export default class AutoComplete extends React.Component {
+export default class FetchAutoComplete extends React.Component {
 
   constructor (props) {
     super(props)
@@ -98,8 +98,8 @@ export default class AutoComplete extends React.Component {
   }
 }
 
-AutoComplete.defaultProps = config
-AutoComplete.propTypes = {
+FetchAutoComplete.defaultProps = config
+FetchAutoComplete.propTypes = {
   inputClass: React.PropTypes.string,
   resultsClass: React.PropTypes.string,
   mainHolderClass: React.PropTypes.string,

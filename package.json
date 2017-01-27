@@ -1,7 +1,7 @@
 {
-  "name": "react-autocomplete",
+  "name": "fetch-autocomplete",
   "version": "1.0.0",
-  "description": "An autocomplete form written in React and using the Fetch API",
+  "description": "An autocomplete input field written in React and using the Fetch API",
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-register",

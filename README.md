@@ -6,13 +6,13 @@ Autocomplete field written in React. A couple of points:
 - It uses the Fetch Api.
 - It is configurable.
 
-To configure the AutoComplete Component you can pass the following
+To configure the FetchAutoComplete Component you can pass the following
 properties:
 
 ```javascript
-import AutoComplete from 'react-autocomplete'
+import { FetchAutoComplete } from 'fetch-autocomplete'
 
-<AutoComplete inputClass='autocomplete-field' resultsClass='autocomplete-results'
+<FetchAutoComplete inputClass='autocomplete-field' resultsClass='autocomplete-results'
               mainHolderClass='autocomplete' defaultSearchText='Search...'
               defaultKeyPresses={3} fetchUrl='http://localhost:8888/data' fetchMethod='POST'
               fetchMode='cors'

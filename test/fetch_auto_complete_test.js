@@ -1,14 +1,14 @@
 import 'jsdom-global/register'
-import AutoComplete from '../src/components/auto_complete'
+import FetchAutoComplete from '../src/components/fetch_auto_complete'
 
 import React from 'react'
 import { expect } from 'chai'
 import { mount, shallow, render } from 'enzyme'
 
 
-describe('<AutoComplete />', () => {
+describe('<FetchAutoComplete />', () => {
   it('returns the proper component structure', () => {
-    let wrapper = shallow(<AutoComplete/>)
+    let wrapper = shallow(<FetchAutoComplete/>)
     expect(wrapper.matchesElement(
       <div className="autocomplete">
         <input type="text" className="autocomplete-field"/>
@@ -17,22 +17,22 @@ describe('<AutoComplete />', () => {
   });
 
   it('creates an element with the main class', () => {
-    expect(shallow(<AutoComplete/>).is('.autocomplete')).to.equal(true)
+    expect(shallow(<FetchAutoComplete/>).is('.autocomplete')).to.equal(true)
   });
 
   it('finds the element with the main class', () => {
-    expect(mount(<AutoComplete/>).find('.autocomplete').length).to.equal(1)
+    expect(mount(<FetchAutoComplete/>).find('.autocomplete').length).to.equal(1)
   });
 
   it('does not show the results div by default', () => {
-    let wrapper = shallow(<AutoComplete />)
+    let wrapper = shallow(<FetchAutoComplete />)
     let resultClass = wrapper.instance().props.resultsClass
 
     expect(wrapper.find(resultClass).exists()).to.equal(false)
   })
 
   it('returns the default props', () => {
-    const wrapper = shallow(<AutoComplete/>)
+    const wrapper = shallow(<FetchAutoComplete/>)
     const props = wrapper.instance().props
 
     expect(props.resultsClass).to.equal('autocomplete-results')
@@ -46,7 +46,7 @@ describe('<AutoComplete />', () => {
   })
 
   it('returns the right initial state', () => {
-    const wrapper = shallow(<AutoComplete/>)
+    const wrapper = shallow(<FetchAutoComplete/>)
 
     expect(wrapper.state().keyPressed).to.equal(false)
     expect(wrapper.state().showResults).to.equal(false)

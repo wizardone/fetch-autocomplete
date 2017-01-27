@@ -1,5 +1,5 @@
-import AutoComplete from './src/components/auto_complete'
+import FetchAutoComplete from './src/components/fetch_auto_complete'
 
 export {
-  AutoComplete
+  FetchAutoComplete
 }
