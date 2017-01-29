@@ -39,5 +39,5 @@ The response format needs to look like this:
   ]
 }
 ```
-Currently only the `value` and `url` are used. Future versions will use
-more options ;)
+Pretty much data is an array of the search results. Currently only the `value`
+and `url` are used to display the results. Future versions will use more options ;)
